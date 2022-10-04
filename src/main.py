@@ -8,7 +8,13 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5.QtWidgets import QPushButton
 
 
+
+def clicked():
+        print("Button clicked!")
+
+
 class MainWindow(QWidget):
+    
     def __init__(self):
         super(MainWindow, self).__init__()
 
@@ -22,7 +28,10 @@ class MainWindow(QWidget):
         self.layout.addWidget(self.b1)
         self.setWindowTitle("Cost-Benefit Analysis Tool")
         self.setLayout(self.layout)
+        
 
+        self.b1.clicked.connect(clicked)
+        
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     mw = MainWindow()

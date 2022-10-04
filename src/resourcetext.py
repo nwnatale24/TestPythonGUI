@@ -1,3 +1,6 @@
+# I tried making a Window with text using this code and the label
+# does not like me. Idk why. Now it is a resource file. 
+
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 from PyQt5 import QtGui
@@ -20,11 +23,7 @@ def window():
     b1 = QtWidgets.QPushButton(win)
     b1.setText("Click Me!")
 
-
     win.show()
     sys.exit(app.exec_()) # Makes a clean exit. 
-
-
-
 
 window()
