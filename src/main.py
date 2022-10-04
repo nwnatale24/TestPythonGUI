@@ -1,31 +1,30 @@
-from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
-from PyQt5 import QtGui
-from PyQt5 import QtCore
+#!/opt/homebrew/bin/python3
+
 import sys
+from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QLabel
+from PyQt5.QtWidgets import QVBoxLayout
+from PyQt5.QtWidgets import QWidget
+from PyQt5.QtWidgets import QPushButton
 
-def window():
+
+class MainWindow(QWidget):
+    def __init__(self):
+        super(MainWindow, self).__init__()
+
+        self.layout = QVBoxLayout()
+        self.label = QLabel("My text is being displayed here without any problems. Finally.")
+
+        self.b1 = QPushButton()
+        self.b1.setText("Click Me!")
+
+        self.layout.addWidget(self.label)
+        self.layout.addWidget(self.b1)
+        self.setWindowTitle("Cost-Benefit Analysis Tool")
+        self.setLayout(self.layout)
+
+if __name__ == "__main__":
     app = QApplication(sys.argv)
-    win = QMainWindow()
-    win.setGeometry(300, 300, 1200, 1000)
-    win.setWindowTitle("Cost-Benefit Analysis Tool")
-
-
-    label = QtWidgets.QLabel(win)
-    label.setText('Window with text!')
-    label.setFont(QtGui.QFont('Arial', 12))
-    label.move(50, 50)
-    #label.setAlignment(QtCore.Qt.AlignRight)
-    
-
-    b1 = QtWidgets.QPushButton(win)
-    b1.setText("Click Me!")
-
-
-    win.show()
-    sys.exit(app.exec_()) # Makes a clean exit. 
-
-
-
-
-window()
+    mw = MainWindow()
+    mw.show()
+    sys.exit(app.exec_())
